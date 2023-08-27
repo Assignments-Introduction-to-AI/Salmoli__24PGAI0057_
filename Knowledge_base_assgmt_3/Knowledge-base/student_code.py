@@ -61,10 +61,10 @@ class KnowledgeBase(object):
                 for rule in self.rules:
                     self.ie.fc_infer(fact_rule, rule, self)
             else:
-                if fact_rule.supported_by:
+                if fact_rule.supprt_by:
                     ind = self.facts.index(fact_rule)
-                    for f in fact_rule.supported_by:
-                        self.facts[ind].supported_by.append(f)
+                    for f in fact_rule.supprt_by:
+                        self.facts[ind].supprt_by.append(f)
                 else:
                     ind = self.facts.index(fact_rule)
                     self.facts[ind].asserted = True
@@ -74,10 +74,10 @@ class KnowledgeBase(object):
                 for fact in self.facts:
                     self.ie.fc_infer(fact, fact_rule, self)
             else:
-                if fact_rule.supported_by:
+                if fact_rule.supprt_by:
                     ind = self.rules.index(fact_rule)
-                    for f in fact_rule.supported_by:
-                        self.rules[ind].supported_by.append(f)
+                    for f in fact_rule.supprt_by:
+                        self.rules[ind].supprt_by.append(f)
                 else:
                     ind = self.rules.index(fact_rule)
                     self.rules[ind].asserted = True
